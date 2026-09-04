@@ -49,7 +49,7 @@ class _AsyncScreenState extends State<AsyncScreen>
         "zoro",
         "killer",
         "nama character one piece",
-        "⏳ Menunggu async getData() (3 detik)...",
+        "Menunggu async getData() (3 detik)...",
       ];
     });
 
