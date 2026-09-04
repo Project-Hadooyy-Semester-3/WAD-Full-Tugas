@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:tugas_wad/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('TugasWadApp navigation smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const TugasWadApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that Acara 9 screen is shown initially
+    expect(find.text('Acara 9: Dart Functions'), findsOneWidget);
+    expect(find.text('Output Console Log'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Tap on NavigationDestination Acara 10: OOP
+    await tester.tap(find.text('Acara 10: OOP'));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that Acara 10 screen is displayed
+    expect(find.text('Acara 10: Pemrograman OOP'), findsOneWidget);
+    expect(find.text('Class Segitiga'), findsOneWidget);
+
+    // Tap on NavigationDestination Acara 11-12: Async
+    await tester.tap(find.text('Acara 11-12: Async'));
+    await tester.pumpAndSettle();
+
+    // Verify that Acara 11 & 12 screen is displayed
+    expect(find.text('Acara 11 & 12: Async, Future, Await'), findsOneWidget);
+    expect(find.text('One Piece Async'), findsOneWidget);
   });
 }
